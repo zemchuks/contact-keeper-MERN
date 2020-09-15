@@ -4,6 +4,7 @@ const { check, validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('config')
+const auth = require('../middleware/auth')
 
 const User = require('../models/User')
 
@@ -12,8 +13,16 @@ const User = require('../models/User')
  *  @descr      Get logged in user
  *  @access     Private
  */
-router.get('/', (req, res) => {
-    res.send('Get logged in user')
+
+    //protect route
+    router.get('/', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password')
+        res.json(user)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error')
+    }
 })
 
 /**
@@ -21,7 +30,7 @@ router.get('/', (req, res) => {
  *  @descr      Auth user and get token
  *  @access     Public
  */
-router.post('/', [
+    router.post('/', [
     check('email', 'Please include a valid Email').isEmail(),
     check('password', 'Password is required').exists(),
 ], async (req, res) => {
