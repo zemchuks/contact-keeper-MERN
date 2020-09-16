@@ -26,16 +26,38 @@ router.get('/', auth, async (req, res) => {
  *  @descr      Add new contact
  *  @access     Private
  */
-router.post('/', (req, res) => {
-    res.send('Add  contact')
-})
+router.post('/', [ auth, [
+    check('name', 'Name is required').not().isEmpty()
+]], async (req, res) => {
+    // Check for errors
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() })
+        } 
+
+        // destructure req.body to get data from the body
+        const { name, email, phone, type } = req.body
+
+        try {
+            // create a new contact
+            const newContact = new Contact({ name, email, phone, type, user: req.user.id })
+            //save to database
+            const contact = await newContact.save()
+            return res.json(contact)
+
+        } catch (err) {
+        console.error(err.message)
+        res.status(500).send('Server error')
+        }
+
+    })
 
 /**
  *  @route      PUT api/contacts/:id
  *  @descr      Update contact
  *  @access     Private
  */
-router.put('/:id', (req, res) => {
+router.put('/:id', auth, (req, res) => {
     res.send('Update contact')
 })
 
@@ -44,7 +66,7 @@ router.put('/:id', (req, res) => {
  *  @descr      Delete contact
  *  @access     Private
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth, (req, res) => {
     res.send('Delete contact')
 })
 

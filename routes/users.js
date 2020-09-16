@@ -22,49 +22,49 @@ router.post('/', [
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() })
-        } 
+        }
         // destructure req.body to get name, email, and password
         const { name, email, password } = req.body
 
     try {
-        // Check to see if there's a user with an existing email
-        let user = await User.findOne({ email })
-        if(user) {
-            return res.status(400).json({ msg: 'User already exist!' })
-        }
-        // If the user doesn't exist, user = new User with the user model
-        user = new User({
-            name, 
-            email, 
-            password
-        })
-        //Encrypt the password with bcrypt
-        const salt = await bcrypt.genSalt(10)
-        // Hash the password
-        user.password = await bcrypt.hash(password, salt)
-        //save to database
-        await user.save()
-
-        // Generate a json web token
-        const payload = {
-            user: {
-                id: user.id,
-                name: user.name
+            // Check to see if there's a user with an existing email
+            let user = await User.findOne({ email })
+            if(user) {
+                return res.status(400).json({ msg: 'User already exist!' })
             }
-        }
+            // If the user doesn't exist, create a new User with the user model
+            user = new User({
+                name, 
+                email, 
+                password
+            })
+            //Encrypt the password with bcrypt
+            const salt = await bcrypt.genSalt(10)
+            // Hash the password
+            user.password = await bcrypt.hash(password, salt)
+            //save to database
+            await user.save()
 
-        //Generate a token and sign
-        jwt.sign(payload, config.get('jwtSecret'), {
-            expiresIn: 360000
-        }, (err, token) => {
-            if(err) throw err
-            res.json({ token })
-        })
+            // Generate a json web token
+            const payload = {
+                user: {
+                    id: user.id,
+                    name: user.name
+                }
+            }
 
-    } catch (err) {
-        console.error(err.message);
-        //send a server error
-        res.status(500).send('server error')
+            //Generate a token and sign
+            jwt.sign(payload, config.get('jwtSecret'), {
+                expiresIn: 360000
+            }, (err, token) => {
+                if(err) throw err
+                res.json({ token })
+            })
+
+        } catch (err) {
+            console.error(err.message);
+            //send a server error
+            res.status(500).send('server error')
     } 
 })
 
