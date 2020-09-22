@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import App from './App';
-import '../node_modules/font-awesome/css/font-awesome.min.css'
 
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css'
 
 
 ReactDOM.render(
