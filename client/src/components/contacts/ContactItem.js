@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import ContactContext from '../../context/contact/contactContext'
 
 // this is a component for one of each contact
 // contact is destructure from mapping of Contacts
 const ContactItem = ({ contact }) => {
+     const contactContext = useContext(ContactContext)
+     const { deleteContact } = contactContext
 
 const { id, name, email, phone, type, facebook, twitter } = contact
 
    const style = {
         marginRight: '8px'
+    }
+
+    // Delete method calls the deleteContact method from contactState
+    const handleDelete = () => {
+        deleteContact(id)
     }
 
     return (
@@ -38,7 +46,7 @@ const { id, name, email, phone, type, facebook, twitter } = contact
             {/* Add buttons */}
             <p>
             <button className="btn btn-primary btm-sm">Edit</button>
-            <button className="btn btn-dark btm-sm">Delete</button>
+            <button className="btn btn-dark btm-sm" onClick={handleDelete}>Delete</button>
             </p>
 
         </div>
