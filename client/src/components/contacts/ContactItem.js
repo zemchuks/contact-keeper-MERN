@@ -6,7 +6,7 @@ import ContactContext from '../../context/contact/contactContext'
 // contact is destructure from mapping of Contacts
 const ContactItem = ({ contact }) => {
      const contactContext = useContext(ContactContext)
-     const { deleteContact } = contactContext
+     const { deleteContact, setCurrent, clearCurrent } = contactContext
 
 const { id, name, email, phone, type, facebook, twitter } = contact
 
@@ -17,7 +17,9 @@ const { id, name, email, phone, type, facebook, twitter } = contact
     // Delete method calls the deleteContact method from contactState
     const handleDelete = () => {
         deleteContact(id)
+        clearCurrent()
     }
+
 
     return (
         <div className='card bg-light'>
@@ -45,7 +47,7 @@ const { id, name, email, phone, type, facebook, twitter } = contact
 
             {/* Add buttons */}
             <p>
-            <button className="btn btn-primary btm-sm">Edit</button>
+            <button className="btn btn-primary btm-sm" onClick={() => setCurrent(contact)} >Edit</button>
             <button className="btn btn-dark btm-sm" onClick={handleDelete}>Delete</button>
             </p>
 

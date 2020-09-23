@@ -42,7 +42,9 @@ const ContactState = props => {
                 twitter: '@chukwusomeje',
                 type: 'Professional'
             }
-        ]
+        ],
+        //when edit is clicked, it should be put into current state
+        current: null
     }
 
     const [state, dispatch] = useReducer(contactReducer, initialState)
@@ -54,14 +56,20 @@ const ContactState = props => {
         dispatch({ type: ADD_CONTACT, payload: contact })
     }
 
-    // Delete Contact
-    const deleteContact = (id) => {
+    // Delete Contact - remove a single contact
+    const deleteContact = id => {
         dispatch({ type: DELETE_CONTACT, payload: id })
     }
 
     // Set Current Conatct
+    const setCurrent = contact => {
+        dispatch({ type: SET_CURRENT, payload: contact })
+    }
 
     // Clear Current Contact
+    const clearCurrent = () => {
+        dispatch({ type: CLEAR_CURRENT })
+    }
 
     // Update Contact
 
@@ -73,8 +81,11 @@ const ContactState = props => {
     return ( 
     <ContactContext.Provider value={{ 
         contacts: state.contacts,
+        current: state.current,
         addContact,
-        deleteContact
+        deleteContact,
+        setCurrent,
+        clearCurrent
         }}> 
                 {props.children} 
             </ContactContext.Provider>
