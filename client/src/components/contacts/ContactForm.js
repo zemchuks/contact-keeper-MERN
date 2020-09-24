@@ -1,12 +1,31 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import ContactContext from '../../context/contact/contactContext'
 
 // This form is going to be used to ADD and UPDATE contact
 const ContactForm = () => {
     const contactContext = useContext(ContactContext)
+    const { addContact, current, updateContact, clearCurrent } = contactContext
 
+    // Fill the form if there's anything in the 'current' value once the form is loaded
+    useEffect(() => {
+        if(current !== null) {
+            setContact(current)
+        } else {
+          setContact({
+              name: '',
+              email: '',
+              phone: '',
+              facebook: '',
+              twitter: '',
+              type: 'personal'
+          })
+        }
+        //eslint-disable-next-line
+    }, [contactContext, current])
+
+    // STATE
     const [contact, setContact] = useState({
-        name: '', 
+        name: '',
         email: '',  
         phone: '', 
         facebook: '', 
@@ -20,23 +39,32 @@ const ContactForm = () => {
 
     //Onsubmit event
     const onSubmit = e => {
-        e.preventDefault()
-        // addContact() function will add the new contact to the database
-        contactContext.addContact(contact)
+        if(current === null) {
+            // addContact() function will add the new contact to the database
+            addContact(contact)
+        } else {
+            // update the state
+            updateContact(contact)
+        }
         // Clear the form
         setContact({
-            name: '', 
+            name: '',
             email: '',  
             phone: '', 
             facebook: '', 
             twitter: '',
             type: 'personal'
         })
+        e.preventDefault()
+    }
+
+    const clearAll = () => {
+        clearCurrent()
     }
 
     return (
         <form onSubmit={onSubmit}>
-            <h2 className='text-primary'>Add Contact</h2>
+            <h2 className='text-primary'>{current ? 'Edit Contact' : 'Add Contact'}</h2>
             <input type='text' placeholder='Name' name='name' value={name} onChange={onChange} />
 
             <input type='email' placeholder='Email' name='email' value={email} onChange={onChange} />
@@ -67,12 +95,14 @@ const ContactForm = () => {
                     <div className="">
                     <input type='submit'
                     name=''
-                    value='Add Contact'
+                    value={current ? 'Update Contact' : 'Add Contact'}
                     className='btn btn-primary btn-block'
                     />
                     </div>
+                    {current && <div>
+                        <button className="btn btn-light btn-block" onClick={clearAll}>Clear</button>
+                    </div> }
         </form>
     )
 }
-
 export default ContactForm

@@ -40,7 +40,7 @@ const ContactState = props => {
                 phone: '2345-544-455',
                 facebook: 'Veralux',
                 twitter: '@chukwusomeje',
-                type: 'Professional'
+                type: 'professional'
             }
         ],
         //when edit is clicked, it should be put into current state
@@ -72,6 +72,9 @@ const ContactState = props => {
     }
 
     // Update Contact
+    const updateContact = contact => {
+        dispatch({ type: UPDATE_CONTACT, payload: contact })
+    }
 
     // Filter Contacts
 
@@ -85,7 +88,8 @@ const ContactState = props => {
         addContact,
         deleteContact,
         setCurrent,
-        clearCurrent
+        clearCurrent,
+        updateContact
         }}> 
                 {props.children} 
             </ContactContext.Provider>

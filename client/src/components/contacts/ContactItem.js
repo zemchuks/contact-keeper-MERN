@@ -26,7 +26,7 @@ const { id, name, email, phone, type, facebook, twitter } = contact
             <h3 className='text-primary text-left'>
                 {/* {''} this is a space */}
                 {name}{' '} 
-                <span style={{ float: 'right'}} className={'badge ' + (type === 'Professional' ? 'badge-success' : 'badge-primary')}>{type}</span>
+                <span style={{ float: 'right'}} className={'badge ' + (type === 'professional' ? 'badge-success' : 'badge-primary')}>{type}</span>
             </h3>
 
             {/* since email and phone are not required, i need to check for them first */}
