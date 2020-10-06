@@ -13,7 +13,9 @@ const { id, name, email, phone, type, facebook, twitter } = contact
    const style = {
         marginRight: '8px'
     }
-
+const style2 = {
+    borderRadius: '10px'
+}
     // Delete method calls the deleteContact method from contactState
     const handleDelete = () => {
         deleteContact(id)
@@ -22,16 +24,18 @@ const { id, name, email, phone, type, facebook, twitter } = contact
 
 
     return (
+        
         <div className='card bg-light'>
-            <h3 className='text-primary text-left'>
+            <h3 className='text-primary text-left'style={style2} >
                 {/* {''} this is a space */}
                 {name}{' '} 
                 <span style={{ float: 'right'}} className={'badge ' + (type === 'professional' ? 'badge-success' : 'badge-primary')}>{type}</span>
             </h3>
 
+            {/*  */}
             {/* since email and phone are not required, i need to check for them first */}
             <ul className="list grid-2 m-1">
-                {email && (<li>
+                {email && (<li style={style2}>
                      <i className='fa fa-envelope-open'></i><span style={style}></span>{email}
                 </li>)}
                 {phone && (<li>

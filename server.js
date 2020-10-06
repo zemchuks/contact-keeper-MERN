@@ -17,5 +17,9 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/contacts', require('./routes/contacts'))
 
 const PORT = process.env.PORT || 5000
+try {
+    app.listen(PORT, () => console.log(`Live at 🏗  Port 🎚 ${PORT}...😊 `))
+} catch (error) {
+    console.log(`🏗 Port ${PORT} is down...😠 `);
+}
 
-app.listen(PORT, () => console.log(`Live at 🏗 port 🎚 ${PORT}...😊 `))

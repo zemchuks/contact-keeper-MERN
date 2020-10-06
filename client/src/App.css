@@ -19,7 +19,11 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: whitesmoke;
+  background: whitesmoke;
+  /* background-image: linear-gradient(to right,
+  #4c606db9, #2937459b), url('./img/hero.jpg'); */
+  background-size: cover;
+  position: relative;
   color: #333;
 }
 
@@ -209,6 +213,7 @@ img {
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
@@ -224,12 +229,14 @@ img {
 .btn-block {
   display: block;
   width: 100%;
+  border-radius: 5px;
 }
 
 .btn-sm {
   font-size: 0.8rem;
   padding: 0.3rem 1rem;
   margin-right: 0.2rem;
+  border-radius: 5px;
 }
 
 .badge {
@@ -323,6 +330,26 @@ input {
   margin-top: 0.3rem;
   color: #888;
 }
+.form-group {
+  margin: 1.2rem 0;
+}
+
+.form-group input {
+  margin: 0.2rem 0;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.form-container h1,
+h2,
+h3 {
+  text-align: center;
+}
 
 input[type='text'],
 input[type='email'],
@@ -335,6 +362,7 @@ textarea {
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 input[type='submit'],
@@ -419,7 +447,7 @@ table th {
   }
 }
 
-/* Pull right  */
+/* Navbar icons animation  */
 ul.container li
 {
     color: #FFF;
@@ -450,3 +478,36 @@ ul.pullRight li:hover:before
 {
     width: 100%;
 }
+/* End of Navbar icons animation  */
+
+/*    Delete Animation styling */
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+.tem-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-in;
+}
+
+/*   FILTER SEARCH ICON STYLING */
+input[type=search] {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  background-color: none;
+  background-image: url('./img/icons8-search-24.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  outline: none;
+}
+

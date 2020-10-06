@@ -30,6 +30,7 @@ router.post('/', [
             // Check to see if there's a user with an existing email
             let user = await User.findOne({ email })
             if(user) {
+                // if user exists, return an error
                 return res.status(400).json({ msg: 'User already exist!' })
             }
             // If the user doesn't exist, create a new User with the user model
@@ -38,10 +39,13 @@ router.post('/', [
                 email, 
                 password
             })
+            
             //Encrypt the password with bcrypt
             const salt = await bcrypt.genSalt(10)
-            // Hash the password
+
+            /***** Hash the password*/ 
             user.password = await bcrypt.hash(password, salt)
+
             //save to database
             await user.save()
 
