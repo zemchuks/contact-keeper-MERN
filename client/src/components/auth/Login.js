@@ -1,16 +1,32 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import AlertContext from '../../context/alert/alertContext'
+import AuthContext from '../../context/auth/authContext'
 
-const Login = () => {
+const Login = (props) => {
     const alertContext = useContext(AlertContext)
     const { setAlert } = alertContext
 
-    const [user, setUser] = useState({
-        email: '',  
-        password: ''   
-    })
+    const authContext = useContext(AuthContext)
+     // Pull out from authContext the error in the state
+     const { login, error, clearErrors, isAuthenticated } = authContext
 
-    const { email, password } = user
+    useEffect(() => {
+        // if isAuthenticated is true, then redirect 
+        if(isAuthenticated) {
+            props.history.push('/')
+        }
+        if(error === 'Invalid Credentials') {
+            setAlert(error, 'danger')
+            clearErrors()
+        }
+        // eslint-disable-next-line
+    }, [error, isAuthenticated, props.history])
+
+            const [user, setUser] = useState({
+                email: '',  
+                password: ''   
+            })
+            const { email, password } = user
 
     // onChange Method
     const onChange = e => setUser({ ...user, [e.target.name]: e.target.value})
@@ -19,9 +35,9 @@ const Login = () => {
     const onSubmit = (e) => {
         e.preventDefault()
         if (email === '' || password === '') {
-            setAlert('Please, Fill all fields', 'danger')
+            setAlert('Please, fill in all fields', 'danger')
         } else  {
-          console.log('register user');
+          login({ email, password })
         }
        }
     
@@ -41,7 +57,7 @@ const Login = () => {
                 </div>
                 <div className='form-group'>
                     <label htmlFor='password'>Password</label>
-                    <input type='password' name='password' value={password} onChange={onChange} />
+                    <input type='password' name='password' value={password} onChange={onChange}  minLength='6' />
                 </div>
 
                 {/* Submit button */}

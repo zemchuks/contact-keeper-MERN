@@ -55,7 +55,7 @@ const Register = (props) => {
                 Account <span className='text-primary'>Register</span>
             </h1>
             
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} data-aos="fade-right">
                 <div className='form-group'>
                     <label htmlFor='name'>Name</label>
                     <input type='text' name='name' value={name} onChange={onChange} />

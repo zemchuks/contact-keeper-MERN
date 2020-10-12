@@ -47,7 +47,7 @@ const User = require('../models/User')
          let user = await User.findOne({email})
          // if theres not a user, send back invalid credentials
          if(!user) {
-             return res.status(400).json({ msg: 'Invalid credentials'})
+             return res.status(400).json({ msg: 'Invalid Credentials'})
          }
          //If there's a user, continue to check password
          const isMatch = await bcrypt.compare(password, user.password)
