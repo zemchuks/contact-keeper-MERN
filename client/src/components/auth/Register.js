@@ -55,26 +55,26 @@ const Register = (props) => {
                 Account <span className='text-primary'>Register</span>
             </h1>
             
-            <form onSubmit={onSubmit} data-aos="fade-right">
+            <form onSubmit={onSubmit} >
                 <div className='form-group'>
-                    <label htmlFor='name'>Name</label>
-                    <input type='text' name='name' value={name} onChange={onChange} />
+                    <label htmlFor='name' style={{ fontWeight: 'bold', fontSize: '18px'}}>Name</label>
+                    <input  type='text' name='name' value={name} onChange={onChange} />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='email'>Email</label>
+                    <label htmlFor='email' style={{ fontWeight: 'bold', fontSize: '18px'}}>Email</label>
                     <input type='email' name='email' value={email} onChange={onChange} />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='password'>Password</label>
+                    <label htmlFor='password' style={{ fontWeight: 'bold', fontSize: '18px'}}>Password</label>
                     <input type='password' name='password' value={password} onChange={onChange}  minLength='6' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='password2'>Confirm Password</label>
+                    <label htmlFor='password2' style={{ fontWeight: 'bold', fontSize: '18px'}}>Confirm Password</label>
                     <input type='password' name='password2' value={password2} onChange={onChange}  minLength='6' />
                 </div>
 
                 {/* Submit button */}
-                <input type='submit' className='btn btn-primary btn-block' />
+                <input type='submit' className='btn btn-success btn-block' />
             </form>
         </div>
     )

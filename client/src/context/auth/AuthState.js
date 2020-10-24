@@ -3,6 +3,7 @@ import AuthContext from '../auth/authContext'
 import authReducer from '../auth/authReducer'
 import axios from 'axios'
 import setAuthToken from '../../utils/setAuthToken'
+
 import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
@@ -59,8 +60,10 @@ const AuthState = props => {
                 type: REGISTER_SUCCESS,
                 payload: res.data
             })
+            
             // call loadUser
             loadUser()
+
         } catch (err) { 
             dispatch({
                 type: REGISTER_FAIL,
@@ -82,7 +85,7 @@ const AuthState = props => {
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
-            })
+            })   
             // call loadUser
             loadUser()
         } catch (err) { 
@@ -91,10 +94,11 @@ const AuthState = props => {
                 payload: err.response.data.msg
             })
         }
+        
     }
 
     //Logout
-    const logout = () => console.log('logout user');
+    const logout = () => dispatch({ type: LOGOUT });
 
     // Clear Error
     const clearErrors = () => dispatch({ type: CLEAR_ERRORS });

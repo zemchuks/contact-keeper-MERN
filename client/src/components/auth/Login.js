@@ -1,6 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, Fragment } from 'react'
 import AlertContext from '../../context/alert/alertContext'
 import AuthContext from '../../context/auth/authContext'
+import Spinner from '../layout/Spinner' 
 
 const Login = (props) => {
     const alertContext = useContext(AlertContext)
@@ -42,28 +43,32 @@ const Login = (props) => {
        }
     
     return (
-
-        <div className='form-container'>
-            <center>
-            <h1>
-                Account <span className='text-primary'>Login</span>
-            </h1>
-            </center>
-            <form onSubmit={onSubmit}>
-                
-                <div className='form-group'>
-                    <label htmlFor='email'>Email</label>
-                    <input type='email' name='email' value={email} onChange={onChange} />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='password'>Password</label>
-                    <input type='password' name='password' value={password} onChange={onChange}  minLength='6' />
-                </div>
-
-                {/* Submit button */}
-                <input type='submit' value='LOG IN' className='btn btn-primary btn-block' />
-            </form>
-        </div>
+       <Fragment>
+            {/* {isAuthenticated ? <Spinner setTimeout={2000} />  : ( */}
+            <div className='form-container'>
+                <center>
+                <h1>
+                    Account <span className='text-primary'>Login</span>
+                </h1>
+                </center>
+                <form onSubmit={onSubmit}>
+                    
+                    <div className='form-group'>
+                        <label htmlFor='email' style={{ fontWeight: 'bold', fontSize: '18px'}}>Email</label>
+                        <input type='email' name='email' value={email}  onChange={onChange} />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='password' style={{ fontWeight: 'bold', fontSize: '18px'}}>Password</label>
+                        <input type='password' name='password' value={password} onChange={onChange}  minLength='6' />
+                    </div>
+    
+                    {/* Submit button */}
+                    <input type='submit' value='LOG IN' className='btn btn-success btn-block' />
+                </form>
+            </div>
+            
+       </Fragment>
+        
     )
 }
 

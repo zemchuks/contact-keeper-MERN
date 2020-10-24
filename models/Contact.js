@@ -17,6 +17,14 @@ const ContactSchema = mongoose.Schema({
     phone: {
         type: String
     },
+    facebook: {
+        type: String,
+        required: true
+    },
+    twitter: {
+        type: String,
+        required: true
+    },
     type: {
         type: String,
         default: 'personal'

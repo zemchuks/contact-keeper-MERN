@@ -20,17 +20,11 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   background: whitesmoke;
-  /* background-image: linear-gradient(to right,
-  #4c606db9, #2937459b), url('./img/hero.jpg'); */
+   /* background-image: linear-gradient(to right,
+  #4c606db9, #2937459b), url('./img/hero.jpg');  */
   background-size: cover;
   position: relative;
   color: #333;
-}
-
-.loader {
-  height: 70px;
-  width: 70px;
-  background-color: whitesmoke;
 }
 
 a {
@@ -52,10 +46,10 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
-  margin: auto;
+  max-width: 100%;
+  margin: 0;
   overflow: hidden;
-  padding: 0 2rem;
+  padding: 0 0rem;
 }
 
 /* Text Styles*/
@@ -410,11 +404,18 @@ table th {
   margin-right: 0.6rem;
 }
 
+.nav-heading h1{
+  font-weight: bold;
+  font-size: 30px;
+  color: whitesmoke;
+}
+
 /* Mobile Styles */
 @media (max-width: 570px) {
   .hide-sm {
     display: none;
   }
+  
 
   .grid-2,
   .grid-3,
@@ -440,12 +441,24 @@ table th {
     display: block;
     text-align: center;
   }
+  .nav-heading h1{
+    font-weight: bold;
+    font-size: 18px;
+    color: whitesmoke;
+  }
 
   .navbar ul {
     text-align: center;
     justify-content: center;
   }
+  .display-5 {
+    margin-top: 120px;
+    font-size: 27px;
+    font-weight: 300;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 }
+
 
 /* Navbar icons animation  */
 ul.container li
@@ -511,3 +524,30 @@ input[type=search] {
   outline: none;
 }
 
+.jumbo {
+  overflow: hidden;
+  color: white;
+}
+.jumbotron {
+  background: linear-gradient(rgba(78, 78, 78, 0.8), rgba(0, 0, 0, 0.8)), url('./img/hero.jpg');
+  background-size: cover;
+  position: relative;
+  height: 89vh;
+}
+
+.display-5 {
+  margin-top: 120px;
+  font-size: 27px;
+  font-weight: 300;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.lead {
+  margin-top: 30px;
+}
+.loader {
+  display: block;
+  margin: auto;
+  width: 70px;
+  height: 70px;
+  background-color: white;
+}

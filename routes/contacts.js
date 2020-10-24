@@ -36,11 +36,11 @@ router.post('/', [ auth, [
         } 
 
         // destructure req.body to get data from the body
-        const { name, email, phone, type } = req.body
+        const { name, email, phone, facebook, twitter, type } = req.body
 
         try {
             // create a new contact
-            const newContact = new Contact({ name, email, phone, type, user: req.user.id })
+            const newContact = new Contact({ name, email, phone, facebook, twitter, type, user: req.user.id })
             //save to database
             const contact = await newContact.save()
             return res.json(contact)
@@ -60,7 +60,7 @@ router.post('/', [ auth, [
  */
 router.put('/:id', auth, async (req, res) => {
     // destructure req.body to get data from the body
-    const { name, email, phone, type } = req.body
+    const { name, email, phone, facebook, twitter, type } = req.body
 
     //Build contact object
     const contactFields = {}
@@ -68,6 +68,8 @@ router.put('/:id', auth, async (req, res) => {
     if (name) contactFields.name = name
     if (email) contactFields.email = email
     if (phone) contactFields.phone = phone
+    if (facebook) contactFields.facebook = facebook
+    if (twitter) contactFields.twitter = twitter
     if (type) contactFields.type = type
 
     try {

@@ -4,12 +4,14 @@ import Navbar from './components/layout/Navbar'
 import Alerts from './components/layout/Alerts'
 import Home from './components/pages/Home'
 import About from './components/pages/About'
+import Landing from './components/pages/Landing'
 import ContactState from './context/contact/ContactState'
 import AuthState from './context/auth/AuthState'
 import AlertState from './context/alert/AlertState'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import setAuthToken from './utils/setAuthToken'
+import PrivateRoute from './components/routing/PrivateRoute'
 
 import './App.css'
 
@@ -31,7 +33,8 @@ if (localStorage.token) {
             <div className="container">
               <Alerts />
               <Switch>
-                <Route exact path='/' component={Home} />
+              <Route exact path='/landing' component={Landing} />
+                <PrivateRoute exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />
 
                 <Route exact path='/register' component={Register} />
