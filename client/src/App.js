@@ -29,11 +29,11 @@ if (localStorage.token) {
         <Router>
           <Fragment>
             <Navbar />
-          
+            <Route exact path='/landing' component={Landing} />
             <div className="container">
               <Alerts />
               <Switch>
-              <Route exact path='/landing' component={Landing} />
+              
                 <PrivateRoute exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />
 

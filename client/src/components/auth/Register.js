@@ -1,10 +1,12 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, Fragment } from 'react'
 import AlertContext from '../../context/alert/alertContext'
 import AuthContext from '../../context/auth/authContext'
+import loader from "./loading.gif"
 
 const Register = (props) => {
     const alertContext = useContext(AlertContext)
     const authContext = useContext(AuthContext)
+    const [loading, setLoading] = useState(false)
 
     const { setAlert } = alertContext
     // Pull out from authContext the error in the state
@@ -43,13 +45,16 @@ const Register = (props) => {
         } else if(password !== password2) {
          setAlert('Passwords do not match', 'danger')
         } else {
-            register({ name, email, password })
+            setLoading(true)
+            setTimeout(()=>{
+                register({ name, email, password })
+            }, 1500)
+            }
         }
-       }
     
     return (
-
-        <div className='form-container'>
+        <Fragment>
+            {loading ? <img src={loader} className='loader' /> :  <div className='form-container'>
             
             <h1>
                 Account <span className='text-primary'>Register</span>
@@ -57,19 +62,19 @@ const Register = (props) => {
             
             <form onSubmit={onSubmit} >
                 <div className='form-group'>
-                    <label htmlFor='name' style={{ fontWeight: 'bold', fontSize: '18px'}}>Name</label>
+                    <label htmlFor='name' style={{ fontWeight: 'bold', fontSize: '15px'}}>Name</label>
                     <input  type='text' name='name' value={name} onChange={onChange} />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='email' style={{ fontWeight: 'bold', fontSize: '18px'}}>Email</label>
+                    <label htmlFor='email' style={{ fontWeight: 'bold', fontSize: '15px'}}>Email</label>
                     <input type='email' name='email' value={email} onChange={onChange} />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='password' style={{ fontWeight: 'bold', fontSize: '18px'}}>Password</label>
+                    <label htmlFor='password' style={{ fontWeight: 'bold', fontSize: '15px'}}>Password</label>
                     <input type='password' name='password' value={password} onChange={onChange}  minLength='6' />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='password2' style={{ fontWeight: 'bold', fontSize: '18px'}}>Confirm Password</label>
+                    <label htmlFor='password2' style={{ fontWeight: 'bold', fontSize: '15px'}}>Confirm Password</label>
                     <input type='password' name='password2' value={password2} onChange={onChange}  minLength='6' />
                 </div>
 
@@ -77,6 +82,8 @@ const Register = (props) => {
                 <input type='submit' className='btn btn-success btn-block' />
             </form>
         </div>
+        }
+       </Fragment>
     )
 }
 

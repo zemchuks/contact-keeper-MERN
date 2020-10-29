@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
+  --primary-color:#3B2F63;
   --dark-color: #333333;
   --light-color: #b9b6b69b;
   --danger-color: #dc3545;
@@ -46,10 +46,10 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: auto;
   overflow: hidden;
-  padding: 0 0rem;
+  padding: 0 2rem;
 }
 
 /* Text Styles*/
@@ -528,9 +528,9 @@ input[type=search] {
   overflow: hidden;
   color: white;
 }
-.jumbotron {
+.content {
   background: linear-gradient(rgba(78, 78, 78, 0.8), rgba(0, 0, 0, 0.8)), url('./img/hero.jpg');
-  background-size: cover;
+  background-size: cover !important;
   position: relative;
   height: 89vh;
 }

@@ -6,9 +6,9 @@ const Landing = () => {
     return (
 
       <Fragment>
-        <div className=''>
+        <div className='content'>
           <div className="jumbotron jumbotron-fluid mb-0">
-            <div className="jumbo container">
+            <div className="jumbo">
               <div className="row justify-content-center text-center">
                 <div className="col-md-10 col-lg-6">
                   <h1 className="display-5">The Coolest Online storage of personal Information</h1>
