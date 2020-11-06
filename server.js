@@ -19,7 +19,7 @@ app.use('/api/users', require('./routes/users'))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/contacts', require('./routes/contacts'))
 
-app.use(express.static('client/build'))
+app.use(express.static('./client/build'))
 // Serve static assests in production
 if (process.env.NODE_ENV === 'production') {
 
