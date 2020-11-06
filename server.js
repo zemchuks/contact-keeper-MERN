@@ -27,9 +27,6 @@ if(process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 5000
 
-try {
-    app.listen(PORT, () => console.log(`Live at 🏗  Port 🎚 ${PORT}...😊 `))
-} catch (error) {
-    app.listen(PORT, () =>  console.log(`🏗 Port ${PORT} is down...😠 `));
-}
+app.listen(PORT, () => console.log(`Live at 🏗  Port 🎚 ${PORT}...😊 `))
+
 
