@@ -48,16 +48,17 @@ const Register = (props) => {
             setLoading(true)
             setTimeout(()=>{
                 register({ name, email, password })
+                setLoading(false)
             }, 1500)
             }
         }
     
     return (
         <Fragment>
-            {loading ? <img src={loader} className='loader' /> :  <div className='form-container'>
+            {loading ? <img src={loader} className='loader' alt='' /> :  <div className='form-container'>
             
             <h1>
-                Account <span className='text-primary'>Register</span>
+                Account <span className='text-secondary'>Register</span>
             </h1>
             
             <form onSubmit={onSubmit} >

@@ -21,10 +21,14 @@ const Navbar = ({ icon, title }) => {
         const style = {
             marginRight: '8px'
         }
+        const style2 = {
+            fontWeight: 'bold',
+            fontSize: '16px'
+        }
 
     const authLinks = (
         <Fragment>
-            <li className='hello-item'>Hello { user && user.name } </li>
+            <li className='hello-item'>Hello, <span style={style2}>{ user && user.name }</span> </li>
             <li>
                 <a href='#!' onClick={onLogout}><i className='fas fa-sign-out-alt'></i>
                 <span className='hide-sm'>Logout</span>
@@ -43,7 +47,10 @@ const Navbar = ({ icon, title }) => {
 
     return (
         <nav className='navbar bg-primary nav-heading'>
+            <div className='container'>
             <h1><i className={icon}></i>{title}</h1>
+            </div>
+           
             <ul className='container pullRight'>
                 {/* LINK to is used in place of <a> tag */}
                 { isAuthenticated ? authLinks : guestLinks }

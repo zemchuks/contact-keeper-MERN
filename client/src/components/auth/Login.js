@@ -5,6 +5,7 @@ import loader from "./loading.gif"
 
 const Login = (props) => {
     const [loading, setLoading] = useState(false)
+
     const alertContext = useContext(AlertContext)
     const { setAlert } = alertContext
 
@@ -38,11 +39,13 @@ const Login = (props) => {
         e.preventDefault()
         if (email === '' || password === '') {
             setAlert('Please, fill in all fields', 'danger')
-        } else  {
+        } else {
             setLoading(true)
             setTimeout(()=>{
                 login({ email, password })
-            }, 1500)
+                setLoading(false)
+            }, 1000)
+ 
         }
        }
     
@@ -53,7 +56,7 @@ const Login = (props) => {
             <div className='form-container'>
                 <center>
                 <h1>
-                    Account <span className='text-primary'>Login</span>
+                    Account <span className='text-secondary'>Login</span>
                 </h1>
                 </center>
                 <form onSubmit={onSubmit}>
