@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as  } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Alerts from './components/layout/Alerts'
 import Home from './components/pages/Home'
