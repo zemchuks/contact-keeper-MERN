@@ -3,7 +3,7 @@
 This is an application where you can register, login, create and store contact information.
 
 The Project was hosted on Heroku. 
-Demo can be found [Here](https://contact-store.herokuapp.com/landing)
+Demo can be found [Here](https://gentle-waters-77639.herokuapp.com/landing)
 
 ## Required Features
 
