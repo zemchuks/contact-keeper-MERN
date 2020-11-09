@@ -22,7 +22,7 @@ Demo can be found [Here](https://gentle-waters-77639.herokuapp.com/landing)
 - ESLint
 - MongoBD (Database)
 ## Front-End Technologies and Libraries
-- React
+- React 
 - JavaScript
 - CSS
 - Fontawesome
