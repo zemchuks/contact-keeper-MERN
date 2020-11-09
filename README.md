@@ -15,7 +15,7 @@ Demo can be found [Here](https://gentle-waters-77639.herokuapp.com/landing)
 - User can search for a contact.
 - Only logged-in user can see all their contacts.
 
-## Technologies 
+## Technologies
 
 - Node JS
 - Express
