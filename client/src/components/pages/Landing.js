@@ -7,8 +7,6 @@ const Landing = () => {
 
       <Fragment>
         <div className='content'>
-         
-            
               <div className="text-center jumbo">
                   <h1 className="large">The Coolest Online storage of personal Information</h1>
 

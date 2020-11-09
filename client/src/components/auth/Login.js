@@ -52,7 +52,7 @@ const Login = (props) => {
     return (
        <Fragment>
             {/* {isAuthenticated ? <Spinner setTimeout={2000} />  : ( */}
-            {loading ? <img src={loader} className='loader' /> : 
+            {loading ? <img src={loader} alt='' className='loader' /> : 
             <div className='form-container'>
                 <center>
                 <h1>
@@ -74,9 +74,7 @@ const Login = (props) => {
                     <input type='submit' value='LOG IN' className='btn btn-success btn-block' />
                 </form>
             </div> }
-            
-            
-            
+                
        </Fragment>
         
     )
