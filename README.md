@@ -20,7 +20,7 @@ Demo can be found [Here](https://gentle-waters-77639.herokuapp.com/landing)
 - Node JS
 - Express
 - ESLint
-- MongoBD
+- MongoBD (Database)
 ## Front-End Technologies and Libraries
 - React
 - JavaScript
