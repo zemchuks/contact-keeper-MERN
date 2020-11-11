@@ -474,10 +474,6 @@ table th {
     font-weight: 300;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  .content .jumbo p {
-    width: 600px;
-    margin: auto;
-  }
 }
 
 
@@ -555,7 +551,6 @@ input[type=search] {
   height: 89vh;
 }
 .content .jumbo p {
-  width: 600px;
   margin: auto;
 }
 .content .jumbo h1, p {
