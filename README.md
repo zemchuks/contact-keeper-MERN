@@ -1,9 +1,13 @@
+[![Heroku App Status](http://heroku-shields.herokuapp.com/gentle-waters-77639)](https://gentle-waters-77639.herokuapp.com)
+ ![GitHub repo size](https://img.shields.io/github/repo-size/zemchuks/contact-keeper-MERN) 
 ## Contact Store
 
 This is an application where you can register, login, create and store contact information.
 
 The Project was hosted on Heroku. 
 Demo can be found [Here](https://gentle-waters-77639.herokuapp.com/landing)
+
+
 
 ## Required Features
 
