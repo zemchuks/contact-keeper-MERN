@@ -25,7 +25,7 @@ const style2 = {
 
     return (
         <Fragment>
-            <div className='card bg-light'>
+            <div className='card bg-light homeClass'>
                 <h3 className='text-primary text-left'style={style2} >
                     {/* {''} this is a space */}
                     {name}{' '} 

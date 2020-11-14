@@ -25,8 +25,9 @@ Demo can be found [Here](https://gentle-waters-77639.herokuapp.com/landing)
 - Express
 - ESLint
 - MongoBD (Database)
+
 ## Front-End Technologies and Libraries
-- React 
+- React - React Context, React Hooks, CSSTransition and Transition Group
 - JavaScript
 - CSS
 - Fontawesome

@@ -331,6 +331,15 @@ img {
 input {
   margin: 1.2rem 0;
 }
+form.homeClass {
+  margin-top: 50px;
+}
+form.filterClass {
+  margin-top: 20px;
+}
+div.homeClass {
+  margin-top: 25px;
+}
 
 .form-text {
   display: block;
@@ -350,6 +359,7 @@ input {
   margin: 2rem auto;
   overflow: hidden;
   padding: 0 2rem;
+  margin-top: 70px;
 }
 
 .form-container h1,

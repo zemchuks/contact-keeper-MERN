@@ -63,7 +63,7 @@ const ContactForm = () => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form className='homeClass' onSubmit={onSubmit}>
             <h2 className='text-primary'>{current ? 'Edit Contact' : 'Add Contact'}</h2>
             <input type='text' placeholder='Name' name='name' value={name} onChange={onChange} />
 
