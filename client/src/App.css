@@ -548,7 +548,7 @@ input[type=search] {
 .content {
   background: linear-gradient(rgba(78, 78, 78, 0.8), rgba(0, 0, 0, 0.8)), url('./img/hero.jpg');
   background-size: cover !important;
-  height: 89.5vh;
+  height: 90.3vh;
 }
 .content .jumbo p {
   margin: auto;
